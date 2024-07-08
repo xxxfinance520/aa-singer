@@ -1,0 +1,163 @@
+{
+    "abi": [
+        {
+          "inputs": [],
+          "name": "getPubkey",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "publicKey",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "assetId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "getUTXOs",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "bytes32",
+                  "name": "omniAddress",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "assetId",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "txid",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "index",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "uint128",
+                  "name": "amount",
+                  "type": "uint128"
+                }
+              ],
+              "internalType": "struct Types.UTXO[]",
+              "name": "UTXOs",
+              "type": "tuple[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getUnsignedTx",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "txIndex",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "bytes32",
+                  "name": "txid",
+                  "type": "bytes32"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "enum Types.TxType",
+                      "name": "txType",
+                      "type": "uint8"
+                    },
+                    {
+                      "internalType": "bytes",
+                      "name": "txData",
+                      "type": "bytes"
+                    }
+                  ],
+                  "internalType": "struct OmniverseTx",
+                  "name": "otx",
+                  "type": "tuple"
+                }
+              ],
+              "internalType": "struct OmniverseTxWithTxid",
+              "name": "unsignedTx",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "internalType": "enum Types.TxType",
+                  "name": "txType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "txData",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct OmniverseTx",
+              "name": "omniTx",
+              "type": "tuple"
+            },
+            {
+              "internalType": "bytes32[]",
+              "name": "merkleProof",
+              "type": "bytes32[]"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signerPubkey",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "customData",
+              "type": "bytes"
+            }
+          ],
+          "name": "handleOmniverseTx",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "txIndex",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signature",
+              "type": "bytes"
+            }
+          ],
+          "name": "submitTx",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ]
+}
